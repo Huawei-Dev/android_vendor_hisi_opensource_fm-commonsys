@@ -1,11 +1,10 @@
 java_library {
     name: "hisi.fmradio",
     provides_uses_lib: "hisi.fmradio",
-    defaults: ["hisi.fmradio_defaults"],
     installable: true,
     srcs: [
-        "**/*.java",
-        "**/*.aidl",
+        "src/**/*.java",
+        "src/**/*.aidl",
     ],
 }
 

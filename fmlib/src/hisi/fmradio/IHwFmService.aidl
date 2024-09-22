@@ -10,7 +10,6 @@
 package hisi.fmradio;
 import hisi.fmradio.IFmEventCallback;
 
-
 /**{@hide}*/
 interface IHwFmService {
     int acquireFd(String str);
