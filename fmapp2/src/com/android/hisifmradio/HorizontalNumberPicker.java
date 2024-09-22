@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -58,6 +58,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -1350,9 +1351,9 @@ public class HorizontalNumberPicker extends LinearLayout {
      * Sets the values to be displayed.If autoCalMinMax passed true, will calculate
      * and set min value and max value.
      *
-     * @param displayedValues
+     * @param displayeValues
      *            The displayed values.
-     * @param autoCalMinMax
+     * @param autoCalculateMinMax
      *            Whether auto calculate and set the min value and max value.
      */
     public void setDisplayedValues(String[] displayeValues , boolean autoCalculateMinMax) {

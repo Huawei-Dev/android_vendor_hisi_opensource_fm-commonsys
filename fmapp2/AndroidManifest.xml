@@ -28,10 +28,10 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.caf.fmradio" >
-    <uses-sdk android:minSdkVersion="34"  android:targetSdkVersion="34"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    package="com.android.hisifmradio" >
+    <uses-sdk android:minSdkVersion="33"  android:targetSdkVersion="33"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -54,17 +54,19 @@
     <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
     <uses-permission android:name="android.permission.CAPTURE_AUDIO_HOTWORD" />
     <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.CALL_AUDIO_INTERCEPTION"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING"/>
 
     <application
         android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:allowTaskReparenting="true"
-        android:taskAffinity="com.caf.task.fmradio"
+        android:taskAffinity="com.hisi.task.fmradio"
         android:theme="@style/FMTheme"
         android:name=".FMAdapterApp">
 
-        <uses-library android:name="qcom.fmradio"
+        <uses-library android:name="hisi.fmradio"
             android:required="true" />
 
         <activity android:icon="@mipmap/ic_launcher"
@@ -84,23 +86,23 @@
             </intent-filter>
 
             <intent-filter>
-                <action android:name="com.caf.fmradio.FMRADIO_ACTIVITY" />
+                <action android:name="com.android.hisifmradio.FMRADIO_ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </activity>
 
-        <receiver android:name="com.caf.fmradio.FMMediaButtonIntentReceiver"
-                  android:exported="true" >
+        <receiver android:name="com.android.hisifmradio.FMMediaButtonIntentReceiver"
+            android:exported="true" >
             <intent-filter>
-                 <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
             </intent-filter>
         </receiver>
 
         <activity android:name=".Settings"
-                  android:exported="true"
-                  android:theme="@style/FMTheme"
-                  android:label="@string/menu_settings">
+            android:exported="true"
+            android:theme="@style/FMTheme"
+            android:label="@string/menu_settings">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -109,7 +111,7 @@
         </activity>
 
         <activity android:name=".FMStats"
-                  android:exported="true"
+            android:exported="true"
             android:label="@string/test_menu">
 
             <intent-filter>
@@ -119,7 +121,7 @@
         </activity>
 
         <activity android:name=".FmTags"
-                  android:exported="true"
+            android:exported="true"
             android:label="@string/rt_plus_tags">
 
             <intent-filter>
@@ -128,7 +130,7 @@
 
         </activity>
 
-       <activity android:name=".StationListActivity"
+        <activity android:name=".StationListActivity"
             android:exported="true"
             android:label="@string/menu_all_channels"
             android:configChanges="orientation|keyboardHidden|screenSize|fontScale">
@@ -137,10 +139,9 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
 
-       </activity>
+        </activity>
 
-       <service android:name=".FMRadioService"
-            android:foregroundServiceType="mediaPlayback"
+        <service android:name=".FMRadioService"
             android:exported="true" />
 
     </application>

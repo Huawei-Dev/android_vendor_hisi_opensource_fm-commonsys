@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="155dp">
 
-        <com.caf.fmradio.HorizontalNumberPicker
+        <com.android.hisifmradio.HorizontalNumberPicker
             android:id="@+id/fm_picker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

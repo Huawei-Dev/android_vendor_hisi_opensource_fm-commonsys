@@ -160,6 +160,7 @@
     <string name="fm_cmd_failed_msg">FM-opgave fejlede. Hvis problemet vedbliver, så slå venligst FM fra og til igen.</string>
     <string name="fm_cmd_failed_msg_hdmi">FM-opgave fejlede. Samtidig brug af FM og HDMI er ikke understøttet.</string>
     <string name="fm_cmd_failed_call_on">FM-opgave fejlede. FM-lyd er ikke tilladt under opkald.</string>
+    <string name="audio_db_title_format"><xliff:g id="format">dd-MM-yyyy HH:mm:ss</xliff:g></string>
     <string name="audio_db_artist_name">Mine FM-optagelser</string>
     <string name="audio_db_album_name">FM-optagelser</string>
     <string name="audio_db_playlist_name">FM-optagelser</string>

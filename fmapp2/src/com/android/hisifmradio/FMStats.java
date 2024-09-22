@@ -26,8 +26,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -45,7 +46,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -53,14 +53,15 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import qcom.fmradio.FmReceiver;
+
+import com.android.hisifmradio.IFMRadioService;
+import com.android.hisifmradio.IFMRadioServiceCallbacks;
+import hisi.fmradio.FmReceiver;
 import android.os.SystemProperties;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.app.AlarmManager;
@@ -73,18 +74,15 @@ import android.view.MenuInflater;
 import android.os.SystemClock;
 import android.graphics.Point;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
-import android.os.SystemProperties;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.Formatter;
 import java.util.Locale;
 
 public class FMStats extends Activity  {
+
+    private static final String FMRADIO_DEVICE_FD_STRING = "/dev/radio0";
 
     EditText txtbox1;
     Button button1;
@@ -287,8 +285,8 @@ public class FMStats extends Activity  {
     private static final Object[] sTimeArgs = new Object[5];
 
     private final String FREQ_LIST_FILE_NAME = "/freq_list_comma_separated.txt";
-    private static final String BAND_SWEEP_START_DELAY_TIMEOUT = "com.caf.fmradio.SWEEP_START_DELAY_EXP";
-    private static final String BAND_SWEEP_DWELL_DELAY_TIMEOUT = "com.caf.fmradio.SWEEP_DWELL_DELAY_EXP";
+    private static final String BAND_SWEEP_START_DELAY_TIMEOUT = "com.android.hisifmradio.SWEEP_START_DELAY_EXP";
+    private static final String BAND_SWEEP_DWELL_DELAY_TIMEOUT = "com.android.hisifmradio.SWEEP_DWELL_DELAY_EXP";
 
     private BroadcastReceiver mBandSweepDelayExprdListener = null;
     private BroadcastReceiver mBandSweepDwellExprdListener = null;
@@ -3745,7 +3743,7 @@ public class FMStats extends Activity  {
                }
            };
            IntentFilter intentFilter = new IntentFilter(BAND_SWEEP_START_DELAY_TIMEOUT);
-           registerReceiver(mBandSweepDelayExprdListener, intentFilter, Context.RECEIVER_EXPORTED);
+           registerReceiver(mBandSweepDelayExprdListener, intentFilter);
         }
     }
 
@@ -3762,7 +3760,7 @@ public class FMStats extends Activity  {
                }
            };
            IntentFilter intentFilter = new IntentFilter(BAND_SWEEP_DWELL_DELAY_TIMEOUT);
-           registerReceiver(mBandSweepDwellExprdListener, intentFilter, Context.RECEIVER_EXPORTED);
+           registerReceiver(mBandSweepDwellExprdListener, intentFilter);
         }
     }
 
@@ -3987,11 +3985,13 @@ public class FMStats extends Activity  {
       return sFormatter.format(durationformat, timeArgs).toString();
    }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
         {
-          case R.id.menu_recording:
+            // TODO Iceows
+          case 1000061:
                if(isRecording()) {
                   stopRecording();
                }else {

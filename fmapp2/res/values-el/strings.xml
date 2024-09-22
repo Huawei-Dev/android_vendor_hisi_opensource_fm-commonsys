@@ -169,7 +169,7 @@
     <string name="station_list_delete_station">Διαγραφή: <xliff:g id="name">%s</xliff:g></string>
     <string name="station_list_delete_station_prompt">Είστε βέβαιοι ότι θέλετε να διαγράψετε το \'<xliff:g id="name">%s</xliff:g>\';</string>
     <string name="station_name_empty">Το όνομα του σταθμού είναι άδειο, πληκτρολογήστε ξανά.</string>
-    <string name="station_name_exist">Το \'<xliff:g id="name">%s</xliff:g>\' είναι ήδη σε χρήση, παρακαλώ εισάγετε ένα διαφορετικό όνομα.</string>
+    <string name="station_name_exist">Το \'<xliff:g id="name">%s </xliff:g>\' είναι ήδη σε χρήση, παρακαλώ εισάγετε ένα διαφορετικό όνομα.</string>
     <string name="rt_plus_tags">Ετικέτες</string>
     <string name="usr_def_band_min">Χαμηλότερη συχνότητα (MHz)</string>
     <string name="usr_def_band_max">Υψηλότερη συχνότητα (MHz)</string>

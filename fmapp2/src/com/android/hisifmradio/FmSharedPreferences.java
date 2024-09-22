@@ -25,7 +25,7 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import java.util.*;
 import java.util.ArrayList;
@@ -38,8 +38,8 @@ import java.util.Map;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.telephony.TelephonyManager;
-import qcom.fmradio.FmReceiver;
-import qcom.fmradio.FmConfig;
+import hisi.fmradio.FmReceiver;
+import hisi.fmradio.FmConfig;
 import android.os.SystemProperties;
 import android.util.Log;
 

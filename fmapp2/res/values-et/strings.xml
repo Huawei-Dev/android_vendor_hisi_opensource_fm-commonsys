@@ -48,6 +48,7 @@
     <string name="msg_searching">Otsin tugevaid jaamu et luua valmissätete nimekiri\u2026</string>
     <string name="msg_noantenna">Palun sisesta peakomplekt et kasutada FM raadiot</string>
     <string name="dialog_sleep_title">Automaatne uneaeg</string>
+    <string name="presetlist_select_name">Vali \'<xliff:g id="preset_name">%1$s</xliff:g>\'</string>
     <string name="presetlist_add_new">Lisa uus loend</string>
     <string name="dialog_presetlist_rename_title">Sisesta nimi</string>
     <string name="presetlist_autoselect_title">Kinnitage automaatvalik</string>
@@ -159,11 +160,13 @@
     <string name="fm_cmd_failed_msg">FM toiming nurjus. Probleemi jätkumisel lülitage FM-raadio välja ja uuesti sisse.</string>
     <string name="fm_cmd_failed_msg_hdmi">FM toiming nurjus. FM ja HDMI ühilduvus ei ole toetatud.</string>
     <string name="fm_cmd_failed_call_on">FM toiming nurjus. FM audio pole saadaval kõne ajal.</string>
+    <string name="audio_db_title_format"><xliff:g id="format">dd-MM-yyyy HH:mm:ss</xliff:g></string>
     <string name="audio_db_artist_name">Minu FM-salvestised</string>
     <string name="audio_db_album_name">FM-salvestised</string>
     <string name="audio_db_playlist_name">FM-salvestised</string>
     <string name="station_name">Jaam:</string>
     <string name="station_exists">See sagedus on juba olemas!</string>
+    <string name="station_list_delete_station">Kustuta: <xliff:g id="name"> %s </xliff:g></string>
     <string name="station_list_delete_station_prompt">Kas soovite kindlasti kustutada \'<xliff:g id="name">%s</xliff:g>\'?</string>
     <string name="station_name_empty">Jaama nimeväli on tühi, sisestage uus nimi.</string>
     <string name="station_name_exist">\'<xliff:g id="name">%s</xliff:g>\' on juba kasutusel, palun vali teine nimi.</string>

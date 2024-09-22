@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.caf.utils;
+package com.hisi.hc_utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,17 +27,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import qcom.fmradio.FmConfig;
-import qcom.fmradio.FmReceiver;
+import hisi.fmradio.FmConfig;
+import hisi.fmradio.FmReceiver;
 import java.util.Locale;
-import com.caf.fmradio.R;
-import com.caf.utils.FrequencyPicker.OnFrequencyChangedListener;
+import com.android.hisifmradio.R;
+import com.hisi.hc_utils.FrequencyPicker.OnFrequencyChangedListener;
 
 /**
  * A simple dialog containing an FrequencyPicker.
  */
 public class FrequencyPickerDialog extends AlertDialog implements OnClickListener,
-OnFrequencyChangedListener {
+        OnFrequencyChangedListener {
 
     private static final String FREQUENCY = "FREQUENCY";
     private static final String FREQ_MIN = "FREQ_MIN";
@@ -60,35 +60,35 @@ OnFrequencyChangedListener {
     /**
      */
     public FrequencyPickerDialog(Context context,
-                                                            FmConfig fmConfig,
-                                                            int frequency,
+                                 FmConfig fmConfig,
+                                 int frequency,
                                  OnFrequencySetListener callback) {
         //this(context, android.R.style.Theme_Dialog, fmConfig, frequency, callback);
-       this(context, com.android.internal.R.style.Theme_Dialog_Alert, fmConfig, frequency, callback);
+        this(context, com.android.internal.R.style.Theme_Dialog_Alert, fmConfig, frequency, callback);
     }
 
     /**
      */
     public FrequencyPickerDialog(Context context,
-            int theme,
-            FmConfig fmConfig,
-                        int frequency,
-                        OnFrequencySetListener callback) {
+                                 int theme,
+                                 FmConfig fmConfig,
+                                 int frequency,
+                                 OnFrequencySetListener callback) {
         super(context, theme);
         mMinFrequency = fmConfig.getLowerLimit();
         mMaxFrequency = fmConfig.getUpperLimit();
         mChannelSpacing = 200;
         if(FmReceiver.FM_CHSPACE_200_KHZ == fmConfig.getChSpacing())
         {
-                mChannelSpacing = 200;
+            mChannelSpacing = 200;
         }
         else if(FmReceiver.FM_CHSPACE_100_KHZ == fmConfig.getChSpacing())
         {
-                mChannelSpacing = 100;
+            mChannelSpacing = 100;
         }
         else if(FmReceiver.FM_CHSPACE_50_KHZ == fmConfig.getChSpacing())
         {
-                mChannelSpacing = 50;
+            mChannelSpacing = 50;
         }
         int MHz = frequency/1000;
         int KHz = (frequency%1000)/100;
@@ -110,7 +110,7 @@ OnFrequencyChangedListener {
         mFrequencyPicker = (FrequencyPicker) view.findViewById(R.id.frequencyPicker);
         if(mFrequencyPicker != null)
         {
-                mFrequencyPicker.init(mMinFrequency, mMaxFrequency, mChannelSpacing, frequency, this);
+            mFrequencyPicker.init(mMinFrequency, mMaxFrequency, mChannelSpacing, frequency, this);
         }
         else
         {
@@ -127,7 +127,7 @@ OnFrequencyChangedListener {
         } else {
             setTitle("FM - "+MHz+"."+KHz);
         }
-            mFrequencyPicker.updateFrequency(frequency);
+        mFrequencyPicker.updateFrequency(frequency);
     }
 
     public void onClick(DialogInterface dialog, int which) {
@@ -139,7 +139,7 @@ OnFrequencyChangedListener {
     }
 
     public void onFrequencyChanged(FrequencyPicker view, int frequency) {
-            UpdateFrequency(frequency);
+        UpdateFrequency(frequency);
     }
 
     @Override
@@ -173,26 +173,26 @@ OnFrequencyChangedListener {
         mChannelSpacing = 200;
         if(FmReceiver.FM_CHSPACE_200_KHZ == steps)
         {
-                mChannelSpacing = 200;
+            mChannelSpacing = 200;
         }
         else if(FmReceiver.FM_CHSPACE_100_KHZ == steps)
         {
-                mChannelSpacing = 100;
+            mChannelSpacing = 100;
         }
         else if(FmReceiver.FM_CHSPACE_50_KHZ == steps)
         {
-                mChannelSpacing = 50;
+            mChannelSpacing = 50;
         }
         mFrequencyPicker.updateSteps(mChannelSpacing);
     }
     public void updateMinFreq(int freq)
     {
-       mMinFrequency = freq;
-       mFrequencyPicker.updateMinFreq(mMinFrequency);
+        mMinFrequency = freq;
+        mFrequencyPicker.updateMinFreq(mMinFrequency);
     }
     public void updateMaxFreq(int freq)
     {
-       mMaxFrequency = freq;
-       mFrequencyPicker.updateMaxFreq(mMaxFrequency);
+        mMaxFrequency = freq;
+        mFrequencyPicker.updateMaxFreq(mMaxFrequency);
     }
 }

@@ -26,14 +26,12 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.bluetooth.BluetoothA2dp;
-import android.bluetooth.BluetoothDevice;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,11 +40,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.BroadcastReceiver;
 import android.content.res.Configuration;
-import android.media.AudioSystem;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -59,7 +55,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.KeyEvent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -72,8 +67,6 @@ import android.widget.Toast;
 import android.text.TextUtils;
 
 import java.util.*;
-import java.io.File;
-import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Formatter;
 import java.util.HashMap;
@@ -82,24 +75,23 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.ArrayList;
 
-import com.caf.utils.FrequencyPicker;
-import com.caf.utils.FrequencyPickerDialog;
+import com.hisi.hc_utils.FrequencyPicker;
+import com.hisi.hc_utils.FrequencyPickerDialog;
 import android.content.ServiceConnection;
-import android.media.MediaRecorder;
 
-import qcom.fmradio.FmConfig;
-import android.os.ServiceManager;
+import com.android.hisifmradio.IFMRadioServiceCallbacks;
+import hisi.fmradio.FmConfig;
 
-import com.caf.fmradio.HorizontalNumberPicker.OnScrollFinishListener;
-import com.caf.fmradio.HorizontalNumberPicker.OnValueChangeListener;
-import com.caf.fmradio.HorizontalNumberPicker.Scale;
+import com.android.hisifmradio.HorizontalNumberPicker.OnValueChangeListener;
+import com.android.hisifmradio.HorizontalNumberPicker.Scale;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.drawable.ColorDrawable;
 import android.Manifest;
 import android.content.pm.PackageManager;
+
+import com.android.hisifmradio.IFMRadioService;
 
 public class FMRadio extends Activity
 {
@@ -289,8 +281,10 @@ public class FMRadio extends Activity
    private static String[] RECORD_PERMISSIONS = {
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAPTURE_AUDIO_OUTPUT,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
     };
+
    private static final int ALL_PERMISSIONS = 101;
 
     @Override
@@ -329,7 +323,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,  i
       mCommandActive = CMD_NONE;
       mCommandFailed = CMD_NONE;
 
-      Log.d(LOGTAG, "onCreate permssion req");
+      Log.d(LOGTAG, "onCreate permission req");
       requestPermissions(RECORD_PERMISSIONS, ALL_PERMISSIONS);
       Point p = new Point();
       getWindowManager().getDefaultDisplay().getSize(p);
@@ -1737,7 +1731,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,  i
    private void startRecording() {
       if(mService != null) {
          try {
-             Log.d(LOGTAG, "startRecording permssion req");
+             Log.d(LOGTAG, "startRecording permission req");
              requestPermissions(RECORD_PERMISSIONS, ALL_PERMISSIONS);
              mRecording = mService.startRecording();
          }catch (RemoteException e) {
@@ -3016,7 +3010,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,  i
       public void onServiceConnected(ComponentName className, android.os.IBinder service) {
          sService = IFMRadioService.Stub.asInterface(service);
          if (mCallback != null) {
-            Log.e(LOGTAG, "onServiceConnected: mCallback");
+            Log.i(LOGTAG, "onServiceConnected: mCallback");
             mCallback.onServiceConnected(className, service);
          }
       }
@@ -3033,7 +3027,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,  i
    private ServiceConnection osc = new ServiceConnection() {
       public void onServiceConnected(ComponentName classname, IBinder obj) {
          mService = IFMRadioService.Stub.asInterface(obj);
-         Log.e(LOGTAG, "ServiceConnection: onServiceConnected");
+         Log.i(LOGTAG, "ServiceConnection: onServiceConnected");
          if (mService != null) {
             try {
                mService.registerCallbacks(mServiceCallbacks);
@@ -3274,7 +3268,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,  i
             };
             IntentFilter iFilter = new IntentFilter();
             iFilter.addAction(Settings.ACTION_FM_SETTING);
-            registerReceiver(mFmSettingReceiver, iFilter, Context.RECEIVER_EXPORTED);
+            registerReceiver(mFmSettingReceiver, iFilter);
         }
     }
 

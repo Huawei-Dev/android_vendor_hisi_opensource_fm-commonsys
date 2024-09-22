@@ -123,6 +123,7 @@
     <string name="fm_cmd_failed_msg">Radio-Operatioun feelgeschloen. Falls de Problem bestoe bleift, schalt de Radio aus an nees un.</string>
     <string name="fm_cmd_failed_msg_hdmi">Radio-Operatioun feelgeschloen. Radio an HDMI funktionnéieren net gläichzäiteg.</string>
     <string name="fm_cmd_failed_call_on">Radio-Operatioun feelgeschloen. Während engem Uruff ka kee Radio gelauschtert ginn.</string>
+    <string name="audio_db_title_format"><xliff:g id="format">dd/MM/yyyy HH:mm:ss</xliff:g></string>
     <string name="audio_db_artist_name">Meng Radioopnamen</string>
     <string name="audio_db_album_name">Radioopnamen</string>
     <string name="audio_db_playlist_name">Radioopnamen</string>

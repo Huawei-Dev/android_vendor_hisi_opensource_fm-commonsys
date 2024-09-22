@@ -26,9 +26,9 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
-import qcom.fmradio.FmReceiver;
+import hisi.fmradio.FmReceiver;
 import java.util.Locale;
 import android.content.res.Resources;
 import android.text.TextUtils;

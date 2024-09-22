@@ -48,6 +48,7 @@
     <string name="msg_searching">Тражим станице са јаким сигналом ради израде списка станица\u2026</string>
     <string name="msg_noantenna">Прикључите слушалице да бисте користили FM радио</string>
     <string name="dialog_sleep_title">Време до аутоматског гашења</string>
+    <string name="presetlist_select_name">Изабери \'<xliff:g id="preset_name">%1$s</xliff:g>\'</string>
     <string name="presetlist_add_new">Додај нову листу</string>
     <string name="dialog_presetlist_rename_title">Унесите име</string>
     <string name="presetlist_autoselect_title">Потрвдите ауто-бирање</string>
@@ -55,6 +56,7 @@
     <string name="preset_tune">Подесите</string>
     <string name="preset_rename">Преименовање</string>
     <string name="preset_delete">Обриши</string>
+    <string name="preset_search">Претрага: <xliff:g id="terms">%1$s</xliff:g></string>
     <string name="stat_notif_frequency">\'<xliff:g id="frequency">%1$s</xliff:g>\' MHz</string>
     <string name="regional_band">Регионални опсег</string>
     <string name="regional_band_entry_north_america">Северна Америка</string>
@@ -158,6 +160,7 @@
     <string name="fm_cmd_failed_msg">FM операција неуспешна. Ако се проблем настави, молимо искључите FM и укључите га поново.</string>
     <string name="fm_cmd_failed_msg_hdmi">Истовремено коришћење FM радија и HDMI улаза није подржано.</string>
     <string name="fm_cmd_failed_call_on">FM операција неуспешна. FM аудио није дозвољен у току позива.</string>
+    <string name="audio_db_title_format"><xliff:g id="format">dd-MM-yyyy HH:mm:ss</xliff:g></string>
     <string name="audio_db_artist_name">Моји радио-снимци</string>
     <string name="audio_db_album_name">Радио-снимци</string>
     <string name="audio_db_playlist_name">Радио-снимци</string>

@@ -44,6 +44,7 @@
     <string name="msg_scanning">Meklēšana visām FM stacijām\u2026</string>
     <string name="msg_noantenna">Lūdzu, pievienojiet austiņas, lai izmantotu FM radio</string>
     <string name="dialog_sleep_title">Auto-izslēgšanas laiks</string>
+    <string name="presetlist_select_name">Izvēlieties \'<xliff:g id="preset_name">%1$s</xliff:g>\'</string>
     <string name="presetlist_add_new">Pievienot jaunu sarakstu</string>
     <string name="dialog_presetlist_rename_title">Ievadiet nosaukumu</string>
     <string name="presetlist_autoselect_title">Apstipriniet automātisko atlasi</string>
@@ -117,6 +118,7 @@
     <string name="station_list_delete_station">Dzēst: <xliff:g id="name">%s</xliff:g></string>
     <string name="station_list_delete_station_prompt">Vai tiešām vēlaties dzēst \'<xliff:g id="name">%s</xliff:g>\'?</string>
     <string name="station_name_empty">Stacijas nosaukums ir tukšs, lūdzu, ievadiet vēlreiz.</string>
+    <string name="station_name_exist">\' <xliff:g id="name">%s\' </xliff:g> jau pastāv, lūdzu, ievadiet citu nosaukumu.</string>
     <string name="rt_plus_tags">Tagi</string>
     <string name="usr_def_band_min">Zemākā frekvence (MHz)</string>
     <string name="usr_def_band_max">Augstākā frekvence (MHz)</string>

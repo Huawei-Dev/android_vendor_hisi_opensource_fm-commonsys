@@ -26,7 +26,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import java.util.*;
 import android.app.Activity;

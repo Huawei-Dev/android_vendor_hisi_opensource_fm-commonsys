@@ -160,6 +160,7 @@
     <string name="fm_cmd_failed_msg">FM-toiminto epäonnistui. Jos ongelma jatkuu, poista FM käytöstä ja laita takaisin päälle.</string>
     <string name="fm_cmd_failed_msg_hdmi">FM-toiminto epäonnistui. FM ja HDMI ei voi olla samanaikaisesti päällä.</string>
     <string name="fm_cmd_failed_call_on">FM-toiminto epäonnistui. FM-ääni ei sallittu puhelun aikana.</string>
+    <string name="audio_db_title_format"><xliff:g id="format">dd-MM-yyyy HH:mm:ss</xliff:g></string>
     <string name="audio_db_artist_name">Omat FM-tallennukset</string>
     <string name="audio_db_album_name">FM-tallennukset</string>
     <string name="audio_db_playlist_name">FM-tallennukset</string>

@@ -1,6 +1,14 @@
-package com.caf.fmradio;
+/*
+* aidl file :
+* hisi/fmradio/IHwFmService.aidl
+* This file contains definitions of functions which are
+* exposed by service.
+*
+* Author : Raphael Mounier (Iceows)
+*/
+package com.android.hisifmradio;
 
-import com.caf.fmradio.IFMRadioServiceCallbacks;
+import com.android.hisifmradio.IFMRadioServiceCallbacks;
 
 interface IFMRadioService
 {

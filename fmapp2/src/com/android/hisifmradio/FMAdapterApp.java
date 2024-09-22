@@ -21,7 +21,7 @@
  * @hide
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import android.app.Application;
 import android.util.Log;
@@ -30,13 +30,8 @@ public class FMAdapterApp extends Application {
     private static final String TAG = "FMAdapterApp";
     private static final boolean DBG = true;
     public static FMAdapterApp context = null;  // Allow global access
-    //For Debugging only
-    private static int sRefCount=0;
+    private static int sRefCount = 0;
 
-    static {
-        if (DBG) Log.d(TAG,"Loading FM-JNI Library");
-        System.loadLibrary("qcomfm_jni");
-    }
 
     public FMAdapterApp() {
         super();

@@ -27,7 +27,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.caf.fmradio;
+package com.android.hisifmradio;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -38,8 +38,8 @@ import android.util.Log;
 public class FMMediaButtonIntentReceiver extends BroadcastReceiver {
 
 private static final String TAG = "FMMediaButtonIntentReceiver";
-public static final String FM_MEDIA_BUTTON = "com.caf.fmradio.action.MEDIA_BUTTON";
-public static final String AUDIO_BECOMING_NOISY = "com.caf.fmradio.action.AUDIO_BECOMING_NOISY";
+public static final String FM_MEDIA_BUTTON = "com.android.hisifmradio.action.MEDIA_BUTTON";
+public static final String AUDIO_BECOMING_NOISY = "com.android.hisifmradio.action.AUDIO_BECOMING_NOISY";
 public void onReceive(Context context, Intent intent) {
        String action = intent.getAction();
        if ((action != null) && action.equals(AudioManager.ACTION_AUDIO_BECOMING_NOISY)) {
