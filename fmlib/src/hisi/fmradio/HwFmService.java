@@ -20,7 +20,6 @@ package hisi.fmradio;
 
 
 import android.content.Context;
-import android.media.AudioDeviceAttributes;
 import android.media.AudioSystem;
 
 import android.os.Binder;
@@ -62,9 +61,8 @@ public class HwFmService extends hisi.fmradio.IHwFmService.Stub {
     /* Force device through AudioSystem  */
     private void setDeviceStatFM(int bState) {
         try {
-            AudioDeviceAttributes attrDevice = new AudioDeviceAttributes(AudioSystem.DEVICE_OUT_FM,"","");
+            int deviceConnectionState = AudioSystem.setDeviceConnectionState(AudioSystem.DEVICE_OUT_FM, bState, "", "", 0);
 
-            int deviceConnectionState = AudioSystem.setDeviceConnectionState(attrDevice, bState, 0);
             if (deviceConnectionState == AudioSystem.SUCCESS) {
                 Log.d("FMRadioService", "setDeviceConnectionState OK : " + bState);
             } else {
